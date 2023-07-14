@@ -1,0 +1,212 @@
+
+a{
+    text-decoration: none;
+    color: white;
+}
+.navbar{
+    list-style:none;
+    transition:0.5s;
+}
+
+.navbar a{
+    display: block;
+    position:relative;
+    text-decoration:none;
+    font-size:14px;
+    font-family: sans-serif;
+    /* text-transform:uppercase; */
+    transition:0.5s;
+}
+
+.navbar:hover a{
+    transform:scale(1.3);
+    opacity:0.3;
+    filter:blur(1.5px);
+}
+
+.navbar a:hover{
+    transform:scale(2);
+    opacity:1;
+    filter:blur(0);
+    text-decoration:none;
+}
+
+.navbar a:before{
+    margin-top: 5%;
+    padding-bottom: 2%;
+    content:'';
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:80%;
+    background:#0da559;
+    transition:0.5s;
+    transform-origin:right;
+    transform:scaleX(0);
+    z-index:-1;
+    border-radius: 5px;
+}
+
+.navbar a:hover:before{
+transition:transform 0.5s;
+transform-origin:left;
+transform:scaleX(1);
+}
+
+.copyrightArea a:hover{
+    background: linear-gradient(0deg, rgba(0,22,255,1) 0%, rgba(0,179,246,1) 52%, rgba(0,22,255,1) 100%);
+    border: 2px solid white;
+    height: 80%;
+    border-radius: 10px;
+}
+.socialMedia a{
+    color: white;
+    padding: 2%;
+    border-radius: 5px;
+}
+.facebook-btn:hover{
+    background: #3b5999}
+.instagram-btn:hover{
+    background:linear-gradient(15deg,#ffb13d,#dd277b,#4d5ed4);
+}
+.linkedin-btn:hover{
+    background:#0077b5;
+}
+.twitter-btn:hover{
+    background:#00acee;
+}
+.youtube-btn:hover{
+    background: #f50000;
+}
+.searchField{
+    height: 60%;
+}
+.copyrightArea{
+    color: white;
+    background: linear-gradient(180deg, rgb(0, 46, 1) 5%, rgb(1, 95, 23) 54%, rgb(1, 121, 41) 100%);
+}
+.about{
+    color: white;
+    background: linear-gradient(0deg, rgb(0, 46, 1) 5%, rgb(1, 95, 23) 54%, rgb(1, 121, 41) 100%);        
+}
+.table-success td{
+    background-color: rgb(5, 141, 5);
+    color: white;
+}
+.table-danger td{
+    background-color: rgb(188, 4, 4);
+    color: white;
+}
+.indices .bg-danger{
+    background: rgb(188, 4, 4);
+    color: white;
+}
+.slick-prev{
+    border: 3px solid lightblue;
+    border-radius: 100%;
+    color: white;
+    height: 35px;
+    width: 35px;
+    font-size: 2px;
+    background-image: url("https://static4.depositphotos.com/1000335/354/i/450/depositphotos_3543164-stock-photo-arrow-left-icon-blue-isolated.jpg");
+    background-repeat: no-repeat;
+    background-size: 100%;
+    margin-top: 3%;
+    padding: 18px;
+}
+.slick-next{
+    border: 3px solid lightblue;
+    border-radius: 100%;
+    color: white;
+    height:35px;
+    width: 35px;
+    font-size: 1px;
+    background-image: url("https://static4.depositphotos.com/1000335/354/i/450/depositphotos_3543165-stock-photo-arrow-right-icon-blue-isolated.jpg");
+    background-repeat: no-repeat;
+    background-size: 100%;
+    margin-top: 3%;
+    margin-left: 0.5%;
+    padding: 18px;
+
+}
+
+
+
+
+
+
+
+/* for all social media icons */
+.social-bg .blogger a,.social-bg-hover .blogger a:hover{background-color:#ff5722}
+.social-bg .apple a,.social-bg-hover .apple a:hover{background-color:#333}
+.social-bg .amazon a,.social-bg-hover .amazon a:hover{background-color:#fe9800}
+.social-bg .microsoft a,.social-bg-hover .microsoft a:hover{background-color:#0067B8}
+.social-bg .facebook a,.social-bg .facebook-f a,.social-bg-hover .facebook a:hover,.social-bg-hover .facebook-f a:hover{background-color:#3b5999}
+.social-bg .twitter a,.social-bg-hover .twitter a:hover{background-color:#00acee}
+.social-bg .youtube a,.social-bg-hover .youtube a:hover{background-color:#f50000}
+.social-bg .instagram a,.social-bg-hover .instagram a:hover{background:linear-gradient(15deg,#ffb13d,#dd277b,#4d5ed4)}
+.social-bg .pinterest a,.social-bg .pinterest-p a,.social-bg-hover .pinterest a:hover,.social-bg-hover .pinterest-p a:hover{background-color:#ca2127}
+.social-bg .dribbble a,.social-bg-hover .dribbble a:hover{background-color:#ea4c89}
+.social-bg .linkedin a,.social-bg-hover .linkedin a:hover{background-color:#0077b5}
+.social-bg .tumblr a,.social-bg-hover .tumblr a:hover{background-color:#365069}
+.social-bg .twitch a,.social-bg-hover .twitch a:hover{background-color:#6441a5}
+.social-bg .rss a,.social-bg-hover .rss a:hover{background-color:#ffc200}
+.social-bg .skype a,.social-bg-hover .skype a:hover{background-color:#00aff0}
+.social-bg .stumbleupon a,.social-bg-hover .stumbleupon a:hover{background-color:#eb4823}
+.social-bg .vk a,.social-bg-hover .vk a:hover{background-color:#4a76a8}
+.social-bg .stack-overflow a,.social-bg-hover .stack-overflow a:hover{background-color:#f48024}
+.social-bg .github a,.social-bg-hover .github a:hover{background-color:#24292e}
+.social-bg .soundcloud a,.social-bg-hover .soundcloud a:hover{background:linear-gradient(#ff7400,#ff3400)}
+.social-bg .behance a,.social-bg-hover .behance a:hover{background-color:#191919}
+.social-bg .digg a,.social-bg-hover .digg a:hover{background-color:#1b1a19}
+.social-bg .delicious a,.social-bg-hover .delicious a:hover{background-color:#0076e8}
+.social-bg .codepen a,.social-bg-hover .codepen a:hover{background-color:#000}
+.social-bg .flipboard a,.social-bg-hover .flipboard a:hover{background-color:#f52828}
+.social-bg .reddit a,.social-bg-hover .reddit a:hover{background-color:#ff4500}
+.social-bg .whatsapp a,.social-bg-hover .whatsapp a:hover{background-color:#3fbb50}
+.social-bg .messenger a,.social-bg-hover .messenger a:hover{background-color:#0084ff}
+.social-bg .snapchat a,.social-bg-hover .snapchat a:hover{background-color:#ffe700}
+.social-bg .telegram a,.social-bg-hover .telegram a:hover{background-color:#179cde}
+.social-bg .steam a,.social-bg-hover .steam a:hover{background:linear-gradient(5deg,#0d89bc,#112c5b,#0d1c47)}
+.social-bg .discord a,.social-bg-hover .discord a:hover{background-color:#7289da}
+.social-bg .share a,.social-bg-hover .share a:hover{background-color:var(--meta-color)}
+.social-bg .email a,.social-bg-hover .email a:hover{background-color:#888}
+.social-bg .external-link a,.social-bg-hover .external-link a:hover{background-color:var(--button-hover-bg)}
+.social-color .blogger a,.social-color-hover .blogger a:hover{color:#ff5722}
+.social-color .apple a,.social-color-hover .apple a:hover{color:#333}
+.social-color .amazon a,.social-color-hover .amazon a:hover{color:#fe9800}
+.social-color .microsoft a,.social-color-hover .microsoft a:hover{color:#0067B8}
+.social-color .facebook a,.social-color .facebook-f a,.social-color-hover .facebook a:hover,.social-color-hover .facebook-f a:hover{color:#3b5999}
+.social-color .twitter a,.social-color-hover .twitter a:hover{color:#00acee}
+.social-color .youtube a,.social-color-hover .youtube a:hover{color:#f50000}
+.social-color .instagram a,.social-color-hover .instagram a:hover{color:#dd277b}
+.social-color .pinterest a,.social-color .pinterest-p a,.social-color-hover .pinterest a:hover,.social-color-hover .pinterest-p a:hover{color:#ca2127}
+.social-color .dribbble a,.social-color-hover .dribbble a:hover{color:#ea4c89}
+.social-color .linkedin a,.social-color-hover .linkedin a:hover{color:#0077b5}
+.social-color .tumblr a,.social-color-hover .tumblr a:hover{color:#365069}
+.social-color .twitch a,.social-color-hover .twitch a:hover{color:#6441a5}
+.social-color .rss a,.social-color-hover .rss a:hover{color:#ffc200}
+.social-color .skype a,.social-color-hover .skype a:hover{color:#00aff0}
+.social-color .stumbleupon a,.social-color-hover .stumbleupon a:hover{color:#eb4823}
+.social-color .vk a,.social-color-hover .vk a:hover{color:#4a76a8}
+.social-color .stack-overflow a,.social-color-hover .stack-overflow a:hover{color:#f48024}
+.social-color .github a,.social-color-hover .github a:hover{color:#24292e}
+.social-color .soundcloud a,.social-color-hover .soundcloud a:hover{color:#ff7400}
+.social-color .behance a,.social-color-hover .behance a:hover{color:#191919}
+.social-color .digg a,.social-color-hover .digg a:hover{color:#1b1a19}
+.social-color .delicious a,.social-color-hover .delicious a:hover{color:#0076e8}
+.social-color .codepen a,.social-color-hover .codepen a:hover{color:#000}
+.social-color .flipboard a,.social-color-hover .flipboard a:hover{color:#f52828}
+.social-color .reddit a,.social-color-hover .reddit a:hover{color:#ff4500}
+.social-color .whatsapp a,.social-color-hover .whatsapp a:hover{color:#3fbb50}
+.social-color .messenger a,.social-color-hover .messenger a:hover{color:#0084ff}
+.social-color .snapchat a,.social-color-hover .snapchat a:hover{color:#ffe700}
+.social-color .telegram a,.social-color-hover .telegram a:hover{color:#179cde}
+.social-color .steam a,.social-color-hover .steam a:hover{color:#112c5b}
+.social-color .discord a,.social-color-hover .discord a:hover{color:#7289da}
+.social-color .share a,.social-color-hover .share a:hover{color:var(--meta-color)}
+.social-color .email a,.social-color-hover .email a:hover{color:#888}
+
+
+.fa-facebook:hover{color: red}
