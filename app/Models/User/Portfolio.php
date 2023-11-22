@@ -13,5 +13,6 @@ class Portfolio extends Model
         'stockName',
         'buyingPrice',
         'stockUnit',
+        'userId'
     ];
 }

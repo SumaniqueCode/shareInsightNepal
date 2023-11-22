@@ -5,6 +5,7 @@ namespace App\Http\Controllers\User;
 use App\Http\Controllers\Controller;
 use App\Models\User\WatchList;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class LiveMarketController extends Controller
 {
@@ -12,6 +13,7 @@ class LiveMarketController extends Controller
     {
         $watchlist = new WatchList;
         $watchlist->symbolName = $request->symbol;
+        $watchlist->userId = Auth::user()->id;
         $watchlist->save();
         
         // Return a response or redirect as needed

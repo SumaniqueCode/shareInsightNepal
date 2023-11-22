@@ -9,6 +9,15 @@ use Illuminate\Http\Request;
 
 class WatchlistController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
+    public function watchlist(){
+        liveMarketData();
+        return view('user.watchlist');
+    }
     public function deleteWatchlistStock(string $symbol)
     {
         $watchList = WatchList::where('symbolName', $symbol)->first();

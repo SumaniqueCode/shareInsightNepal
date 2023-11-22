@@ -23,21 +23,29 @@
 </head>
 
 <body class="container">
-    <section class="topHeader row mb-2">
-        <div class="logo d-flex">
-           <a href="{{ url('/home') }}" class="me-auto"><img src="{{asset('images/shareInsight1.JPG')}}" class=" m-2 me-3" alt="Company Banner" width="150px"><img src="{{asset('images/shareInsight2.png')}}" class="me-auto mt-3" alt="Company Banner" width="300px" height="40px"></a>
-            <form class="d-flex searchField m-2" role="search">
-                <input class="form-control me-2 mt-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success mt-2" type="submit">Search</button>
-            </form>
+    <section class="topHeader">
+        <div class="topHeadera">
+            <div class="logo d-flex me-auto row">
+                <div class="col-lg-7 col-md-12 col-sm-12 d-flex me-auto">
+                    <a class="col-lg-3 col-md-4 col-sm-4 mt-auto mb-auto" href="{{ url('/home') }}"><img class="img-fluid" src="{{asset('images/shareInsight1.JPG')}}"alt="Company Logo" width="150px"></a>
+                    <a class="col-lg-6 col-md-8 col-sm-8 me-auto mt-auto mb-auto" href="{{ url('/home') }}"><img class="img-fluid" src="{{asset('images/shareInsight2.png')}}"alt="Company Banner" width="300px" height="40px"></a>
+                 </div>
+                <div class="col-lg-4 col-md-12 col-sm-12 d-flex me-auto"> 
+                    <form class="d-flex  searchField m-2" role="search" action="/search" method="post">
+                     @csrf
+                        <input class="form-control col-lg-5 col-md-5 col-sm-4 p-3 mt-3 me-2" name="symbol" type="search" placeholder="Search" aria-label="Search">
+                         <button class="col-lg-4 col-md-4 col-sm-4 btn btn-outline-success pb-3 mt-3" type="submit">Search</button>
+                    </form>
+                </div>
+            </div>
         </div>
-        <div class="navigation row">
+        <div class="navigation">
             <nav class="navbar navbar-expand-md bg-success-subtle border rounded">
                 <div class="container-fluid">
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                       </button>
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                      <div class="collapse navbar-collapse" id="navbarNav">
                         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                             <li class="nav-item">
                                 <a class="nav-link active" aria-current="page" href="/home">Home</a>
@@ -76,11 +84,12 @@
 
     <section class="bottomFooter row">
         <div class="about pt-2 row rounded-top">
-            <div class="aboutUs col-md">
+            <div class="aboutUs col-md-12 col-lg-8 col-sm-12">
                 <h5>About Us</h5>
-                <p>We are share Insight Nepal. We manage your portfolio. Go green, increase your revenue.</p>
+                <p>We are share Insight Nepal. We manage your portfolio. Go green, increase your revenue. 
+                    For More info Contact: 9800000000 or Mail us: support@shareinsightnepal.com</p>
             </div>
-            <div class="socialMedia m-auto col-md">
+            <div class="socialMedia m-auto col-md-12 col-lg-4 col-sm-12 pb-1">
                     <a alt="facebook" class="facebook-btn ms-2" href="https://www.facebook.com/limitlessplaying" target="_blank"><i class="fa-brands fa-facebook fa-2xl"></i></a>
                     <a alt="twitter" class="twitter-btn ms-2" href="https://twitter.com/regmisuman_2000" target="_blank"><i class="fa-brands fa-twitter fa-2xl"></i></a>
                    <a alt="youtube" class="youtube-btn ms-2" href="https://www.youtube.com/c/limitlessplaying2000" target="_blank"><i class="fa-brands fa-youtube fa-2xl"></i></a>
@@ -90,10 +99,10 @@
 
         </div>
         <div class="copyrightArea rounded-bottom d-flex gap-6 pt-2 row">
-            <div class="copyright col-md">
+            <div class="copyright col-md-12 col-lg-8 col-sm-12">
             <p>Copyright &copy;2022-<script>document.write(new Date().getFullYear())</script> Share Insight Nepal All Rights Reserved</p>
             </div>
-            <div class="col-md d-flex gap-4">
+            <div class="col-md-12 col-lg-4 d-flex col-sm-12 gap-4">
                 <a class="ps-2 pe-2" href="/home">Home</a>
                 <a class="ps-2 pe-2" href="/policy">Privacy Policy</a>
                 <a class="ps-2 pe-2" href="/terms">Terms and Condition</a>

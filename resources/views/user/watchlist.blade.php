@@ -17,7 +17,7 @@
     use App\Models\User\LiveMarket;
     use App\Models\User\WatchList;
 
-    $watchLists = WatchList::latest()->get();
+    $watchLists = WatchList::where('userId', Auth::user()->id)->get();
     ?>
 
 <section class="watchlist mt-1 row">
@@ -45,9 +45,9 @@
                 <?php
                 $liveMarket = LiveMarket::where('symbol', $watchList->symbolName)->first();
                 ?>
-                <tr class="border border-2 border-light {{ $liveMarket && $liveMarket->pointChange > 0 ? 'table-success' : ($liveMarket && $liveMarket->pointChange < 0 ? 'table-danger' : 'table-secondary') }}">
+                <tr class="border border-2 border-light {{ $liveMarket && $liveMarket->pointChange > 0 ? 'table-success' : ($liveMarket && $liveMarket->pointChange < 0 ? 'table-danger' : 'table-primary') }}">
                     <td>{{ $i }}</td>
-                    <td>{{ $watchList->symbolName }}</td>
+                    <td><a class="liveSymbolName" href="/search/{{$watchList->symbolName}}">{{ $watchList->symbolName }}</a></td>
                     @if ($liveMarket)
                         <td>{{ $liveMarket->ltp }}</td>
                         <td>{{ $liveMarket->pointChange }}</td>

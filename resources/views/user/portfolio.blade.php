@@ -22,11 +22,12 @@ $(".addStockPortfolio").toggle();
 <?php 
 use App\Models\User\LiveMarket;
 use App\Models\User\Portfolio;
+use Illuminate\Support\Facades\Auth;
 
 
 $liveMarket = LiveMarket::orderBy('symbol', 'asc')->get();
-$portfolio = Portfolio::latest()->get();
-$totalStock= Portfolio::count();
+$portfolio = Portfolio::where('userId', Auth::user()->id)->get();
+$totalStock= $portfolio->count();
 $totalUnit=Portfolio::sum('stockUnit');
 $totalInvestment=Portfolio::sum('buyingPrice');
 $totalCurrentValue = 0; // Initialize total current value
@@ -41,7 +42,7 @@ foreach ($portfolio as $Portfolio) {
 }
 
 $totalCurrentPrice = $totalCurrentValue ;
-$totalPL = $totalInvestment - $totalCurrentPrice;
+$totalPL = $totalCurrentPrice-$totalInvestment;
 $totalPLpercent = number_format(($totalPL/$totalInvestment)*100 , 2, '.', ' ' );
 if ($totalPL>0) {
   $totalPLtext = "Profit";

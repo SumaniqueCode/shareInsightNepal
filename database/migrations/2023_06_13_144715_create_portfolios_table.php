@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('stockName');
             $table->double('buyingPrice');
             $table->integer('stockUnit');
+            $table->integer('userId');
         });
     }
 

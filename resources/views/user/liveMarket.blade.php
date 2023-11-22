@@ -35,9 +35,9 @@ $i=1;
   </thead>
   <tbody>
           @foreach ($livemarkets as $liveMarketData)
-          <tr class="{{$liveMarketData->pointChange>0 ? 'table-success': ($liveMarketData->pointChange < 0 ? 'table-danger' : 'table-secondary')}} border border-2 border-light">
+          <tr class="{{$liveMarketData->pointChange>0 ? 'table-success': ($liveMarketData->pointChange < 0 ? 'table-danger' : 'table-primary')}} border border-2 border-light">
           <td>{{$i}}</td>
-          <td>{{$liveMarketData->symbol}}</td>
+          <td ><a class="liveSymbolName" href="/search/{{$liveMarketData->symbol}}">{{$liveMarketData->symbol}}</a></td>
           <td>{{$liveMarketData->ltp}}</td>
           <td>{{$liveMarketData->pointChange}}</td>
           <td>{{$liveMarketData->percentChange}}</td>

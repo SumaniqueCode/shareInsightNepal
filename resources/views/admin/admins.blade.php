@@ -37,9 +37,10 @@
                 <form method="POST" action="/addAdmins" enctype="multipart/form-data">
                     @csrf
 
-                    <section class="ms-5 row d-flex">
-                    <div class="col-md mb-3">
-                        <div class="col-md d-flex">
+                    <section class="row d-flex">
+
+                        <div class="ms-auto col-md-4 mb-3">
+                            <div class="col-md d-flex">
                         <label for="firstName" class="col-md-4 col-form-label text-md-end me-2">{{ __('First Name') }}</label>
                             <input id="firstName" type="text" class="form-control @error('firstName') is-invalid @enderror" name="firstName" value="{{ old('firstName') }}" required autocomplete="firstName" autofocus>
 
@@ -51,8 +52,8 @@
                         </div>
                     </div>
 
-                    <div class="col mb-3 me-5">
-
+                    <div class="col-md-4 mb-3 me-auto">
+            
                         <div class="col-md d-flex">
                         <label for="lastName" class="col-md-4 col-form-label me-2 text-md-end">{{ __('Last Name') }}</label>
 

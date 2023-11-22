@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\BrokerController;
 use App\Http\Controllers\Admin\AdminDetailsController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\SearchController;
 use App\Http\Controllers\User\LiveMarketController;
 use App\Http\Controllers\User\PortfolioController;
 use App\Http\Controllers\User\ServicesController;
@@ -34,13 +35,24 @@ Route::get('/loginRegister', [HomeController::class,'index']);
 Auth::routes();
 
 Route::get('/profile', [ProfileController::class, 'profileDisplay']);
+Route::post('/updateUserDetails',[ProfileController::class, 'updateUserDetails']);
+Route::post('/updatePassword',[ProfileController::class, 'updateUserPassword']);
+Route::post('/logout', [ProfileController::class, 'logout']);
 
 //For User Routes
 Route::get('/home', [UserController::class, 'userDashboard'])->name('userHome');
 Route::get('/services', [UserController::class, 'services']);
 Route::get('/liveMarket', [UserController::class, 'liveMarket']);
-Route::get('/portfolio', [UserController::class, 'portfolio']);
-Route::get('/watchlist', [UserController::class, 'watchlist']);
+Route::get('/portfolio', [PortfolioController::class, 'portfolio']);
+Route::get('/watchlist', [WatchlistController::class, 'watchlist']);
+Route::get('/topStocks', [ServicesController::class, 'topStocks']);
+Route::get('/indices', [ServicesController::class, 'indices']);
+Route::get('/search/{symbol}', [SearchController::class, 'clickSearchData']);
+Route::post('/search', [SearchController::class, 'searchData']);
+
+
+
+
 
 //For LiveMarket Routes
 Route::get('/addToWatchlist/{symbol}', [LiveMarketController::class, 'addToWatchlist']);
@@ -55,6 +67,7 @@ Route::get('/deletePortfolioStock/{id}', [PortfolioController::class, 'deletePor
 
 //For Services Routes 
 Route::get('/broker',[ServicesController::class,'broker']);
+Route::get('/ipoResult',[ServicesController::class,'ipoResult']);
 
 
 //For Admin Routes
@@ -68,4 +81,3 @@ Route::post('/addBrokers', [BrokerController::class, 'addBrokers']);
 
 //For AdminList Routes
 Route::post('/addAdmins', [AdminDetailsController::class, 'addAdmins']);
-

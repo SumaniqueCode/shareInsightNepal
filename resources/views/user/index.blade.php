@@ -19,8 +19,8 @@ use App\Models\User\LiveMarket;
 
 $indices = Index::latest()->get();
 $nepseIndex = Index::where('indexName', 'Nepse Index')->first();
-$topgainers = LiveMarket::orderBy('pointChange', 'desc')->take(10)->get();
-$toploosers = LiveMarket::orderBy('pointChange', 'asc')->take(10)->get();
+$topgainers = LiveMarket::orderBy('percentChange', 'desc')->take(10)->get();
+$toploosers = LiveMarket::where('percentChange', '<', 0)->orderBy('percentChange', 'desc')->take(10)->get();
 ?>
 
 <section class="nepseIndex row mb-3 mt-1">
@@ -61,7 +61,7 @@ $toploosers = LiveMarket::orderBy('pointChange', 'asc')->take(10)->get();
           <tbody>
           @foreach ($topgainers as $topgainer)
               <tr class="border border-2 border-light table-success">
-                  <td>{{ $topgainer->symbol}}</td>
+                  <td><a class="liveSymbolName" href="/search/{{$topgainer->symbol}}">{{ $topgainer->symbol}}</a></td>
                       <td>{{ $topgainer->ltp }}</td>
                       <td>{{ $topgainer->pointChange }}</td>
                       <td>{{ $topgainer->percentChange }}</td>
@@ -84,7 +84,7 @@ $toploosers = LiveMarket::orderBy('pointChange', 'asc')->take(10)->get();
           <tbody>
           @foreach ($toploosers as $toplooser)
               <tr class="border border-2 border-light table-danger">
-                  <td>{{ $toplooser->symbol}}</td>
+                  <td><a class="liveSymbolName" href="/search/{{$toplooser->symbol}}">{{ $toplooser->symbol}}</a></td>
                       <td>{{ $toplooser->ltp }}</td>
                       <td>{{ $toplooser->pointChange }}</td>
                       <td>{{ $toplooser->percentChange }}</td>

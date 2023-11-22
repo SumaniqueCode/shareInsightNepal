@@ -11,7 +11,8 @@ class WatchList extends Model
 
     protected $table = 'watchlists';
     protected $fillable=[
-        'symbolName'
+        'symbolName',
+        'userId'
         
     ];
 }
