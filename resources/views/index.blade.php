@@ -90,21 +90,26 @@
 </head>
 <body class="container">
 
-<section class="companyDetails">
-    <section class="topHeader row">  
-      <div class="logo d-flex me-auto justfy-content-between">
-        <div class="col-lg-6 col-md-8 col-sm-7 d-flex me-auto">
-        <a class="col-lg-3 col-md-4 col-sm-4 mt-auto mb-auto" href="{{ url('/') }}"><img class="img-fluid" src="{{asset('images/shareInsight1.JPG')}}"alt="Company Logo" width="150px"></a>
-        <a class="col-lg-6 col-md-8 col-sm-8 me-auto mt-auto mb-auto" href="{{ url('/') }}"><img class="img-fluid" src="{{asset('images/shareInsight2.png')}}"alt="Company Banner" width="300px" height="40px"></a>
-      </div>
-        <div class="col-lg-2 col-md-4 col-sm-5 col-5 d-flex mb-2 d-flex justify-content-center">
-        <a class="col-lg-5 col-md-5 col-sm-4 dashboard nav-link active pe-1 pt-1 mt-3 me-auto" aria-current="page" href="/home"><button class="btn btn-primary">Dashboard</button></a>
-        <a class="col-lg-6 col-md-6 col-sm-5 login nav-link active ps-1 pe-1 pt-1 mt-3" aria-current="page" href="/loginRegister"><button class="btn btn-primary">Login/Register</button></a>
+<section class="companyDetails row">
+    <section class="topHeader col-12"> 
+      <div class="row"> 
+        <div class="logo col-xl-9 col-lg-7 col-md-7 col-sm-7 col-6 me-auto my-auto">
+          <div class="d-flex gap-1">
+            <a class="my-auto" href="{{ url('/') }}"><img class="img-fluid" src="{{asset('images/shareInsight1.JPG')}}"alt="Company Logo" width="150px"></a>
+            <a class="my-auto" href="{{ url('/') }}"><img class="img-fluid" src="{{asset('images/shareInsight2.png')}}"alt="Company Banner" width="300px" height="40px"></a>
+          </div>
+        </div>
+        <div class="col-xl-2 col-lg-2 col-md-4 col-sm-3 col-3 my-3 mx-auto">
+          <div class="row">
+            <a class="col-xl-5 col-lg-3 col-md-5 col-sm-2 col-2 dashboard nav-link active pe-1 pt-1 my-auto me-auto" aria-current="page" href="/home"><button class="btn btn-primary">Dashboard</button></a>
+            <a class="col-xl-6 col-lg-4 col-md-6 col-sm-3 col-3 login nav-link active ps-1 pe-1 my-auto pt-1" aria-current="page" href="/loginRegister"><button class="btn btn-primary">Login/Register</button></a>
+          </div>
+        </div>
       </div>
     </section>
     <p class="border border-4"></p>
   <!-- Hero Section -->
-  <section class="bg-white-100 py-20 main rounded">
+  <section class="bg-white-100 col-12 py-20 main rounded">
     <div class="container mx-auto">
       <div class="text-center">
         <video autoplay muted loop id="video-bg" class="border border-5 border-secondary rounded">
@@ -120,7 +125,7 @@
   </section>
 
   <!-- Features Section -->
-  <section class="py-16">
+  <section class="py-16 col-12">
     <div class="container mx-auto">
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
         <!-- Live Market -->
@@ -177,7 +182,7 @@
   </section>
     
 
-    <section class="bottomFooter row">
+    <section class="bottomFooter col-12 row">
         <div class="about pt-2 row rounded-top">
             <div class="aboutUs col-md">
                 <h5>About Us</h5>

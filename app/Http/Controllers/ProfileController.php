@@ -53,7 +53,7 @@ class ProfileController extends Controller
             $user->address = $data['address'];
                 // 'password' => Hash::make($data['password']),
                 // 'profileImage' => $imagePath,
-                $user->save();
+            $user->save();
         }
 
         public function updateUserDetails(Request $request)

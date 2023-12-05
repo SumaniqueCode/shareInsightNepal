@@ -2,14 +2,14 @@
 @section('content')
 
 <script>
-  $(document).ready(function(){
+  $(document).ready(function () {
     $(".addStockPortfolio").hide();
-$(".addPortfolio").click(function(){
-$(".addStockPortfolio").toggle();
-});
-});
+    $(".addPortfolio").click(function () {
+      $(".addStockPortfolio").toggle();
+    });
+  });
 </script>
-    
+
 @if(session('success'))
 <div class="alert alert-success mt-1"><span>{{ session('success') }}</span></div>
 @endif
@@ -58,12 +58,13 @@ else {
 
 <section class="portfolio mt-1">
   <div class="d-flex">
-<h2 class=" me-auto">Portfolio</h2><button class="addPortfolio rounded btn btn-primary mb-2">Add stock to portfolio</button>
-</div>
-<div class="addStockPortfolio">
-<form method="post" action="/addToPortfolio">
-  @csrf
-    <div class="mb-3 ">
+    <h2 class=" me-auto">Portfolio</h2><button class="addPortfolio rounded btn btn-primary mb-2">Add stock to
+      portfolio</button>
+  </div>
+  <div class="addStockPortfolio">
+    <form method="post" action="/addToPortfolio">
+      @csrf
+      <div class="mb-3 ">
         <h5>Fill your stock details</h5>
         <label for="stockName" class="form-label">Select stock</label>
         <select name="stockName" id="" class="form-select w-50">
@@ -71,47 +72,49 @@ else {
           <option value="{{$liveMarketData->symbol}}">{{$liveMarketData->symbol}}</option>
           @endforeach
         </select>
-      <label for="buyingPrice" class="form-label">Buying Price</label>
-      <input type="text" class="opacity-75 form-control w-50" id="buyingPrice" placeholder="Input price including sebon, broker commission and DP fee" name="buyingPrice">
-      <label for="stockUnit" class="form-label">Units</label>
-      <input type="number" class="form-control w-50" id="stockUnit" name="stockUnit">
-    </div>
-    <button type="submit" class=" mb-4 btn btn-primary">Submit</button>
-  </form>
-</div>
+        <label for="buyingPrice" class="form-label">Buying Price</label>
+        <input type="text" class="opacity-75 form-control w-50" id="buyingPrice"
+          placeholder="Input price including sebon, broker commission and DP fee" name="buyingPrice">
+        <label for="stockUnit" class="form-label">Units</label>
+        <input type="number" class="form-control w-50" id="stockUnit" name="stockUnit">
+      </div>
+      <button type="submit" class=" mb-4 btn btn-primary">Submit</button>
+    </form>
+  </div>
 
-   @if ($totalStock>0)
+  @if ($totalStock>0)
   {{-- displaying stocks --}}
   <div class="summary border rounded mb-2 p-2 bg-secondary-subtle">
     <h5 class="bg-success rounded p-1">Summary</h5>
-
-    <table class="mb-2 me-auto">
-      <tbody>
-        <tr>
-          <td class="p-2">Total number of stocks:</td>
-          <td class="p-2">{{$totalStock}}</td>
-          <td class="p-2">Total Units:</td>
-          <td class="p-2">{{$totalUnit}}</td>
-          <td class="p-2">Total Investment:</td>
-          <td class="p-2">{{$totalInvestment}}</td>
-        </tr>
-        <tr>
-          <td class="p-2">Total Current Price:</td>
-          <td class="p-2">{{$totalCurrentPrice}}</td>
-        </tr>
-        <tr>
-          <td class="p-2">{{$totalPLtext}}:</td>
-          <td class="p-2">{{$totalPL}}</td>
-          <td class="p-2">{{$totalPLtext}} Percent:</td>
-          <td class="p-2">{{$totalPLpercent}}%</td>
-        </tr>
-      </tbody>
-    </table>
+    <div class="">
+      <table class="mb-2 me-auto">
+        <tbody>
+          <tr>
+            <td class="p-2">Total number of stocks:</td>
+            <td class="p-2">{{$totalStock}}</td>
+            <td class="p-2">Total Units:</td>
+            <td class="p-2">{{$totalUnit}}</td>
+          </tr>
+          <tr>
+            <td class="p-2">Total Investment:</td>
+            <td class="p-2">{{$totalInvestment}}</td>
+            <td class="p-2">Total Current Price:</td>
+            <td class="p-2">{{$totalCurrentPrice}}</td>
+          </tr>
+          <tr>
+            <td class="p-2">{{$totalPLtext}}:</td>
+            <td class="p-2">{{$totalPL}}</td>
+            <td class="p-2">{{$totalPLtext}} Percent:</td>
+            <td class="p-2">{{$totalPLpercent}}%</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </div>
 
   <div class="stockDetails border rounded mb-2 p-2 bg-secondary-subtle">
     <h5 class="bg-success rounded p-1">Stock Details</h5>
-    <div class="d-flex row">
+    <div class="row">
 
       {{-- looping table --}}
       @foreach ($portfolio as $portfolioData)
@@ -129,33 +132,35 @@ else {
         }
       ?>
 
-      <span class=" m-2 col">
-      <table>
-        <thead>
-          <th class="stockName bg-info p-1 rounded" name="stockName" colspan="4">{{$portfolioData->stockName}}</th>
-          <th><a  class="ms-2" href="/deletePortfolioStock/{{$portfolioData->id}}"><img src="{{asset('images/delete.png')}}" alt="DELETE STOCK" height="25px"></a></th>
-        </thead>
-        <tbody class="{{$profitLoss>0 ? 'bg-success-subtle': ($profitLoss < 0 ? 'bg-danger-subtle' : 'bg-secondary')}}">
-          <tr>
-            <td class="p-2">Units:</td>
-            <td class="p-2">{{$portfolioData->stockUnit}}</td>
-            <td class="p-2">Total Investment:</td>
-            <td class="p-2">{{$portfolioData->buyingPrice}}</td>
-          </tr>
-          @if ($liveMarket)
-            
-          <tr>
-            <td class="p-2">Current Price Per Unit:</td>
-            <td class="p-2">{{$liveMarket->ltp}}</td>
-            <td class="p-2">Total Current Price:</td>
-            <td class="p-2">{{$totalStockCurrentPrice}}</td>
-          </tr>
-          <tr>
-            <td class="p-2">{{$PLtext}}:</td>
-            <td class="p-2">{{$profitLoss}} </td>
-            <td class="p-2">{{$PLtext}} Percent:</td>
-            <td class="p-2">{{$profitLossPercent}}%</td>
-          </tr>
+      <span class=" m-2 col-6">
+        <table>
+          <thead>
+            <th class="stockName bg-info p-1 rounded" name="stockName" colspan="4">{{$portfolioData->stockName}}</th>
+            <th><a class="ms-2" href="/deletePortfolioStock/{{$portfolioData->id}}"><img
+                  src="{{asset('images/delete.png')}}" alt="DELETE STOCK" height="25px"></a></th>
+          </thead>
+          <tbody
+            class="{{$profitLoss>0 ? 'bg-success-subtle': ($profitLoss < 0 ? 'bg-danger-subtle' : 'bg-secondary')}}">
+            <tr>
+              <td class="p-2">Units:</td>
+              <td class="p-2">{{$portfolioData->stockUnit}}</td>
+              <td class="p-2">Total Investment:</td>
+              <td class="p-2">{{$portfolioData->buyingPrice}}</td>
+            </tr>
+            @if ($liveMarket)
+
+            <tr>
+              <td class="p-2">Current Price Per Unit:</td>
+              <td class="p-2">{{$liveMarket->ltp}}</td>
+              <td class="p-2">Total Current Price:</td>
+              <td class="p-2">{{$totalStockCurrentPrice}}</td>
+            </tr>
+            <tr>
+              <td class="p-2">{{$PLtext}}:</td>
+              <td class="p-2">{{$profitLoss}} </td>
+              <td class="p-2">{{$PLtext}} Percent:</td>
+              <td class="p-2">{{$profitLossPercent}}%</td>
+            </tr>
 
             @else
             <tr>
@@ -172,11 +177,11 @@ else {
             </tr>
             @endif
 
-        </tbody>
-      </table>
-    </span>
+          </tbody>
+        </table>
+      </span>
       @endforeach
-      
+
     </div>
   </div>
   @endif

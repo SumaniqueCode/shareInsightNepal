@@ -1,25 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
 
+<!DOCTYPE html>
+<html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Bootstrap CSS  -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-    <!-- Add Slick Slider CSS -->
+    
+    <!-- Font Awesome CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Slick Slider CSS -->
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
 
-    <!-- Add Slick Slider JS -->
+    <!-- custom styles -->
+    <link rel="stylesheet" href="{{asset('css/style.css') }}">
+
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+
+    <!-- Bootstrap JS (including Popper.js) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+
+    <!-- Slick Slider JS -->
     <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 
     <title>Share Insight Nepal</title>
     <link rel="icon" href="{{asset('images/shareInsight.JPG')}}" type="image/jpg" sizes="32x32">
-    <link rel="stylesheet" href="{{asset('css/style.css') }}">
 </head>
 
 <body class="container">
@@ -40,37 +52,39 @@
             </div>
         </div>
         <div class="navigation">
-            <nav class="navbar navbar-expand-md bg-success-subtle border rounded">
+            <nav class="navbar navbar-expand-lg bg-success-subtle border rounded">
                 <div class="container-fluid">
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                       </button>
                       <div class="collapse navbar-collapse" id="navbarNav">
-                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                            <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href="/home">Home</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link active" href="/services">Services</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href="/liveMarket">Live Market</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href="/watchlist">Watchlist</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href="/portfolio">Portfolio</a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div>
-                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                            <li class="nav-item">
-                                <a class="nav-link active me-3" aria-current="page" href="/profile">Profile</a>
-                            </li>
-                        </ul>
-                    </div>
+                        <div class="navbar-nav me-auto mb-2 mb-lg-0">
+                            <ul class="navbar-nav">
+                                <li class="nav-item">
+                                    <a class="nav-link active text-center" aria-current="page" href="/home">Home</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link active text-center" href="/services">Services</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link active text-center" aria-current="page" href="/liveMarket">Live Market</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link active text-center" aria-current="page" href="/watchlist">Watchlist</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link active text-center" aria-current="page" href="/portfolio">Portfolio</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div>
+                            <div class="navbar-nav me-auto mb-2 mb-lg-0">
+                                <div class="nav-item">
+                                    <a class="nav-link active text-center me-3" aria-current="page" href="/profile">Profile</a>
+                                </div>
+                            </div>
+                        </div>
+                      </div>
                 </div>
             </nav>
         </div>

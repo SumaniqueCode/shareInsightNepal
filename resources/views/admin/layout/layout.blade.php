@@ -28,31 +28,33 @@
         <div class="navigation row">
             <nav class="navbar navbar-expand-md bg-success-subtle border rounded">
                 <div class="container-fluid">
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                       </button>
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class=" navbar-nav me-auto mb-2 mb-md-0">
-                            <li class="ms-3 nav-item">
-                                <a class="nav-link active" aria-current="page" href="/adminHome">Home</a>
-                            </li>
-                            <li class="ms-3 nav-item">
-                                <a class="nav-link active" aria-current="page" href="/brokers">Broker List</a>
-                            </li>
-                            <li class="ms-3 nav-item">
-                                <a class="nav-link active" href="/customers">Customers</a>
-                            </li>
-                            <li class="ms-3 nav-item">
-                                <a class="nav-link active" aria-current="page" href="/admins">Admins</a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div>
-                        <ul class="navbar-nav">
-                            <li class="nav-item">
-                                <a class="nav-link active me-3" aria-current="page" href="/profile">Profile</a>
-                            </li>
-                        </ul>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <div class=" navbar-nav me-auto mb-2 mb-lg-0">
+                            <ul class=" navbar-nav mb-lg-0">
+                                <li class="ms-3 nav-item">
+                                    <a class="nav-link active  text-center" aria-current="page" href="/adminHome">Home</a>
+                                </li>
+                                <li class="ms-3 nav-item">
+                                    <a class="nav-link active  text-center" aria-current="page" href="/brokers">Broker List</a>
+                                </li>
+                                <li class="ms-3 nav-item">
+                                    <a class="nav-link active  text-center" href="/customers">Customers</a>
+                                </li>
+                                <li class="ms-3 nav-item">
+                                    <a class="nav-link active  text-center" aria-current="page" href="/admins">Admins</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div>
+                            <div class="navbar-nav me-auto mb-2 mb-lg-0">
+                                <div class="nav-item">
+                                    <a class="nav-link active text-center me-3" aria-current="page" href="/profile">Profile</a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </nav>
