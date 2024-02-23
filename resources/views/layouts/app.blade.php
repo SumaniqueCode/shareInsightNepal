@@ -30,53 +30,38 @@
         .card-body{
             border: 1px solid black; 
         }
+        body{
+            background: white;
+        }
+        .btn-primary{
+            border: 1px solid white;
+            background: linear-gradient(180deg, rgb(3, 50, 139) 5%, rgb(3, 65, 179) 54%, rgb(3, 110, 211) 100%); 
+        }
+        .btn-danger{
+            background: linear-gradient(180deg, rgb(139, 5, 5) 5%, rgb(210, 5, 5) 54%, rgb(211, 5, 5) 100%); 
+            border: 1px solid white;
+        }
     </style>
 </head>
-<body>
+<body class="container" >
     <section id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
-                <div class="topHeader row me-auto">
-                    <div class="logo d-flex me-auto">
+                <div class="topHeader">
+                    <div class="logo d-flex">
                          <a href="{{ url('/') }}"><img src="{{asset('images/shareInsight1.JPG')}}" class=" ms-4 me-3" alt="Company Banner" width="150px"></a>
                             <a href="{{ url('/') }}"><img src="{{asset('images/shareInsight2.png')}}" class="me-auto mt-3" alt="Company Banner" width="250px" height="30px"></a>
                     </div>
                 </div>
-                    <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav d-flex flex-row gap-2 me-auto ms-auto">
-                        <!-- Authentication Links -->
-                        @guest
-                            @if (Route::has('login'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('login') }}"><button class="btn btn-primary">{{ __('Login') }}</button></a>
-                                </li>
-                            @endif
-
-                            @if (Route::has('register'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}"><button class="btn btn-primary">{{ __('Register') }}</button></a>
-                                </li>
-                            @endif
-                        @else
-                            <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }}
-                                </a>
-
-                                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
-                                    </a>
-
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                        @csrf
-                                    </form>
-                                </div>
-                            </li>
-                        @endguest
-                    </ul>
+                <!-- Right Side Of Navbar -->
+                <!-- Authentication Links -->
+                <div class="my-auto">
+                    @if (Route::has('login'))
+                        <a class="btn btn-primary" href="{{ route('login') }}">{{ __('Login') }}</a>
+                    @endif
+                    @if (Route::has('register'))
+                        <a class="btn btn-primary" href="{{ route('register') }}">{{ __('Register') }}</a>
+                    @endif
                 </div>
             </div>
         </nav>

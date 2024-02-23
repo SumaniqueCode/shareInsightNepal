@@ -35,14 +35,18 @@ $toploosers = LiveMarket::where('percentChange', '<', 0)->orderBy('percentChange
     <h5 class="col-md">Index</h5>
     <div class="d-flex col-md indices">
       @foreach ($indices as $index)
-        <div class="col-md ms-2 mt-2 ps-1 pe-1 border border-2 border-dark rounded text-light {{ $index && $index->indexPercent > 0 ? 'bg-success' : ($index && $index->indexPercent < 0 ? 'bg-danger' : 'bg-secondary') }}">
-          <h5 class="col-md">{{$index->indexName}}</h5>
-          <h5 class="col-md">{{$index->indexPrice}}</h5>
-          <span class="row">
-          <h6 class="col-md">{{$index->indexValue}}</h6>
-          <h6 class="col-md ms-2">{{$index->indexPercent}}</h6>
-        </span>
+      <div class="col-md-4 ms-2 mt-2">
+        <div class="card rounded text-light {{ $index && $index->indexPercent > 0 ? 'bg-success' : ($index && $index->indexPercent < 0 ? 'bg-danger' : 'bg-secondary') }}">
+          <div class="card-body p-1">
+            <h5 class="card-title">{{$index->indexName}}</h5>
+            <h5 class="card-text">{{$index->indexPrice}}</h5>
+            <div class="d-flex">
+              <h6 class="">{{$index->indexValue}}</h6>
+              <h6 class="ms-auto">{{$index->indexPercent}}</h6>
+            </div>
+          </div>
         </div>
+      </div>      
       @endforeach
     </div>
 </section>

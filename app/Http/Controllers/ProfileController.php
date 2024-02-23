@@ -19,7 +19,12 @@ class ProfileController extends Controller
     public function profileDisplay()
     {
         $user = Auth::user();
-        return view('profile', compact('user'));
+        if($user->isRole=="admin"){
+            return view('admin.profile', compact('user'));
+        }
+        else{
+            return view('user.profile', compact('user'));
+        }
     }
         protected function detailsValidator(array $data)
         {

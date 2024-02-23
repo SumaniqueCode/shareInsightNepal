@@ -3,11 +3,48 @@ a{
     text-decoration: none;
     color: white;
 }
+.bg-success{
+    background: linear-gradient(180deg, rgb(7, 125, 5) 5%, rgb(7, 145, 5) 54%, rgb(7, 135, 5) 100%);
+}
+.bg-primary{
+    background: linear-gradient(180deg, rgb(3, 50, 139) 5%, rgb(3, 65, 179) 54%, rgb(3, 110, 211) 100%);  
+}
+.bg-secondary{
+    background: linear-gradient(180deg, rgb(72, 76, 96) 3.6%,rgb(75, 78, 99), rgb(86, 93, 111) 100%);
+}
+.bg-danger{
+    background: linear-gradient(180deg, rgb(140, 5, 5) 5%, rgb(220, 5, 5) 54%, rgb(225, 5, 5) 100%); 
+}
+.table-success td{
+    /* background-color: rgb(5, 141, 5); */
+    background: linear-gradient(180deg, rgb(7, 125, 5) 5%, rgb(7, 145, 5) 54%, rgb(7, 135, 5) 100%);
+    color: white;
+}
+.table-danger td{
+    /* background-color: rgb(188, 4, 4); */
+    background: linear-gradient(180deg, rgb(140, 5, 5) 5%, rgb(220, 5, 5) 54%, rgb(225, 5, 5) 100%); 
+    color: white;
+}
+.table-secondary td{
+    /* background-color: rgb(126, 126, 128); */
+    background: linear-gradient(180deg, rgb(72, 76, 96) 3.6%,rgb(75, 78, 99), rgb(86, 93, 111) 100%);
+    color: white;
+}
+.btn-primary{
+    border: 1px solid white;
+    background: linear-gradient(180deg, rgb(3, 50, 139) 5%, rgb(3, 65, 179) 54%, rgb(3, 110, 211) 100%); 
+}
+.btn-danger{
+    background: linear-gradient(180deg, rgb(140, 5, 5) 5%, rgb(220, 5, 5) 54%, rgb(225, 5, 5) 100%); 
+    border: 1px solid white;
+}
+
+/* layout css */
 .navbar{
     list-style:none;
     transition:0.5s;
+    background: linear-gradient(180deg, rgb(1, 65, 1) 5%, rgb(1, 95, 23) 54%, rgb(1, 121, 41) 100%);
 }
-
 .navbar a{
     display: block;
     position:relative;
@@ -43,7 +80,7 @@ a{
     left:0;
     width:100%;
     height:80%;
-    background:#0da559;
+    /* background:#0da559; */
     transition:0.5s;
     transform-origin:right;
     transform:scaleX(0);
@@ -57,15 +94,12 @@ transform-origin:left;
 transform:scaleX(1);
 }
 
-
-  
-
-.copyrightArea a:hover{
+/* .copyrightArea a:hover{
     background: linear-gradient(0deg, rgba(0,22,255,1) 0%, rgba(0,179,246,1) 52%, rgba(0,22,255,1) 100%);
     border: 2px solid white;
     height: 80%;
-    border-radius: 10px;
-}
+    border-radius: 5px;
+} */
 .socialMedia a{
     color: white;
     padding: 2%;
@@ -90,32 +124,18 @@ transform:scaleX(1);
 }
 .copyrightArea{
     color: white;
-    background: linear-gradient(180deg, rgb(0, 46, 1) 5%, rgb(1, 95, 23) 54%, rgb(1, 121, 41) 100%);
+    background: linear-gradient(180deg, rgb(1, 65, 1) 5%, rgb(1, 95, 23) 54%, rgb(1, 121, 41) 100%);
 }
 .about{
     color: white;
-    background: linear-gradient(0deg, rgb(0, 46, 1) 5%, rgb(1, 95, 23) 54%, rgb(1, 121, 41) 100%);        
+    background: linear-gradient(0deg, rgb(1, 65, 1) 5%, rgb(1, 95, 23) 54%, rgb(1, 121, 41) 100%);        
 }
-.table-success td{
-    background-color: rgb(5, 141, 5);
-    color: white;
-}
-.table-danger td{
-    background-color: rgb(188, 4, 4);
-    color: white;
-}
-.table-primary td{
-    background-color: rgb(126, 126, 128);
-    color: white;
-}
+
+/* index page indices css */
 .liveSymbolName:hover{
     color: dodgerblue;
     font-size: medium;
     font-weight: bolder;
-}
-.indices .bg-danger{
-    background: rgb(188, 4, 4);
-    color: white;
 }
 .slick-prev{
     border: 3px solid lightblue;
@@ -146,10 +166,16 @@ transform:scaleX(1);
 
 }
 
-
-
-
-
+ /* return to top btn css */
+#btn-back-to-top {
+    width: 60px;
+    height: 60px;
+    border-radius: 100%;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display: none;
+  }
 
 
 /* for all social media icons */
@@ -222,12 +248,6 @@ transform:scaleX(1);
 .social-color .discord a,.social-color-hover .discord a:hover{color:#7289da}
 .social-color .share a,.social-color-hover .share a:hover{color:var(--meta-color)}
 .social-color .email a,.social-color-hover .email a:hover{color:#888}
-
-
-
-
-
-
 
 
 .overview-item {

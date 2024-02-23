@@ -89,10 +89,7 @@
   </script>
 </head>
 <body class="container">
-
-<section class="companyDetails row">
-    <section class="topHeader col-12"> 
-      <div class="row"> 
+    <section class="topHeader row"> 
         <div class="logo col-xl-9 col-lg-7 col-md-7 col-sm-7 col-6 me-auto my-auto">
           <div class="d-flex gap-1">
             <a class="my-auto" href="{{ url('/') }}"><img class="img-fluid" src="{{asset('images/shareInsight1.JPG')}}"alt="Company Logo" width="150px"></a>
@@ -102,13 +99,37 @@
         <div class="col-xl-2 col-lg-2 col-md-4 col-sm-3 col-3 my-3 mx-auto">
           <div class="row">
             <a class="col-xl-5 col-lg-3 col-md-5 col-sm-2 col-2 dashboard nav-link active pe-1 pt-1 my-auto me-auto" aria-current="page" href="/home"><button class="btn btn-primary">Dashboard</button></a>
-            <a class="col-xl-6 col-lg-4 col-md-6 col-sm-3 col-3 login nav-link active ps-1 pe-1 my-auto pt-1" aria-current="page" href="/loginRegister"><button class="btn btn-primary">Login/Register</button></a>
+            @guest
+              <a class="col-xl-6 col-lg-4 col-md-6 col-sm-3 col-3 login nav-link active ps-1 pe-1 my-auto pt-1" aria-current="page" href="/loginRegister"><button class="btn btn-primary">Login/Register</button></a>
+            @else
+              <div class="col-xl-6 col-lg-4 col-md-6 col-sm-3 col-3">
+                <div class="d-flex gap-1">
+                <img src="{{ Auth::user()->profileImage }}" alt="Profile Image" class="w-12 img-fluid rounded-circle">
+                <div class="nav-item dropdown mt-auto ">
+                  <a id="navbarDropdown" class="nav-link dropdown-toggle text-black" href="/profile" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                  </a>
+
+                  <div class="dropdown-menu dropdown-menu-end p-1" aria-labelledby="navbarDropdown">
+                    <a href="/profile" class="btn btn-primary w-full mb-1"> {{ Auth::user()->firstName }}  {{ Auth::user()->lastName }} </a>
+                      <a class="btn btn-danger w-full" href="/logout"
+                         onclick="event.preventDefault();
+                                       document.getElementById('logout-form').submit();">
+                          {{ __('Logout') }}
+                      </a>
+                      <form id="logout-form" action="/logout" method="POST" class="d-none">
+                          @csrf
+                      </form>
+                  </div>
+                </div>
+                </div>
+              </div>
+            @endguest
           </div>
         </div>
-      </div>
     </section>
     <p class="border border-4"></p>
-  <!-- Hero Section -->
+
+  <!-- video Section -->
   <section class="bg-white-100 col-12 py-20 main rounded">
     <div class="container mx-auto">
       <div class="text-center">
@@ -125,7 +146,7 @@
   </section>
 
   <!-- Features Section -->
-  <section class="py-16 col-12">
+  <section class="py-6 row">
     <div class="container mx-auto">
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
         <!-- Live Market -->
@@ -180,34 +201,32 @@
       </div>
     </div>
   </section>
-    
-
-    <section class="bottomFooter col-12 row">
-        <div class="about pt-2 row rounded-top">
-            <div class="aboutUs col-md">
-                <h5>About Us</h5>
-                <p>We are share Insight Nepal. We manage your portfolio. Go green, increase your revenue.</p>
-            </div>
-            <div class="socialMedia m-auto col-md">
-                    <a alt="facebook" class="facebook-btn ms-2" href="https://www.facebook.com/limitlessplaying" target="_blank"><i class="fa-brands fa-facebook fa-2xl"></i></a>
-                    <a alt="twitter" class="twitter-btn ms-2" href="https://twitter.com/regmisuman_2000" target="_blank"><i class="fa-brands fa-twitter fa-2xl"></i></a>
-                   <a alt="youtube" class="youtube-btn ms-2" href="https://www.youtube.com/c/limitlessplaying2000" target="_blank"><i class="fa-brands fa-youtube fa-2xl"></i></a>
-                   <a alt="instagram" class="instagram-btn ms-2" href="https://www.instagram.com/regmisuman_2000" target="_blank"><i class="fa-brands fa-instagram fa-2xl"></i></a>
-                    <a alt="linkedin" class="linkedin-btn ms-2" href="https://www.limitlessplaying.blogspot.com" target="_blank"><i class="fa-brands fa-linkedin fa-2xl"></i></a>
-            </div>
-
+  <section class="bottomFooter row">
+    <div class="about pt-2 row rounded-top">
+        <div class="aboutUs col-md-12 col-lg-8 col-sm-12">
+            <h5>About Us</h5>
+            <p>We are share Insight Nepal. We manage your portfolio. Go green, increase your revenue. 
+                For More info Contact: 9800000000 or Mail us: support@shareinsightnepal.com</p>
         </div>
-        <div class="copyrightArea rounded-bottom d-flex gap-6 pt-2 row">
-            <div class="copyright col-md">
-            <p>Copyright &copy;2022-<script>document.write(new Date().getFullYear())</script> Share Insight Nepal All Rights Reserved</p>
-            </div>
-            <div class="col-md d-flex gap-4">
-                <a class="ps-2 pe-2" href="/policy">Privacy Policy</a>
-                <a class="ps-2 pe-2" href="/terms">Terms and Condition</a>
-            </div>
+        <div class="socialMedia m-auto col-md-12 col-lg-4 col-sm-12 pb-1">
+                <a alt="facebook" class="facebook-btn ms-2" href="https://www.facebook.com/limitlessplaying" target="_blank"><i class="fa-brands fa-facebook fa-2xl"></i></a>
+                <a alt="twitter" class="twitter-btn ms-2" href="https://twitter.com/regmisuman_2000" target="_blank"><i class="fa-brands fa-twitter fa-2xl"></i></a>
+               <a alt="youtube" class="youtube-btn ms-2" href="https://www.youtube.com/c/limitlessplaying2000" target="_blank"><i class="fa-brands fa-youtube fa-2xl"></i></a>
+               <a alt="instagram" class="instagram-btn ms-2" href="https://www.instagram.com/regmisuman_2000" target="_blank"><i class="fa-brands fa-instagram fa-2xl"></i></a>
+                <a alt="linkedin" class="linkedin-btn ms-2" href="https://www.limitlessplaying.blogspot.com" target="_blank"><i class="fa-brands fa-linkedin fa-2xl"></i></a>
         </div>
-    </section>
 
+    </div>
+    <div class="copyrightArea navbar rounded-bottom d-flex gap-6 pt-2 row">
+        <div class="copyright col-md-12 col-lg-7 col-sm-12">
+        <p>Copyright &copy;2022-<script>document.write(new Date().getFullYear())</script> Share Insight Nepal All Rights Reserved</p>
+        </div>
+        <div class="col-md-12 col-lg-4 d-flex col-sm-12 gap-4">
+            <a class="ps-2 pe-2" href="/home">Home</a>
+            <a class="ps-2 pe-2" href="/policy">Privacy Policy</a>
+            <a class="ps-2 pe-2" href="/terms">Terms and Condition</a>
+        </div>
+    </div>
 </section>
 </body>
 </html>
