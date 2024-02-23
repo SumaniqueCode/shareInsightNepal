@@ -31,7 +31,6 @@ Route::get('/', function () {
 
 Route::get('/loginRegister', [HomeController::class,'index']);
 
-
 Auth::routes();
 
 Route::get('/profile', [ProfileController::class, 'profileDisplay']);

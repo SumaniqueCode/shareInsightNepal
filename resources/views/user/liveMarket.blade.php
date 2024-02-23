@@ -17,7 +17,7 @@ $i=1;
 <section class="liveMarket mt-1 row">
   <div class="col-sm-12">
     <h2>Live Market</h2>
-    <table class="table">
+    <table class="table overflow-hidden">
   <thead>
     <tr class="table-dark">
       <th scope="col">ID</th>
@@ -34,9 +34,9 @@ $i=1;
     </tr>
   </thead>
   <tbody>
-          @foreach ($livemarkets as $liveMarketData)
-          <tr class="{{$liveMarketData->pointChange>0 ? 'table-success': ($liveMarketData->pointChange < 0 ? 'table-danger' : 'table-primary')}} border border-2 border-light">
-          <td>{{$i}}</td>
+    @foreach ($livemarkets as $liveMarketData)
+      <tr class="{{$liveMarketData->pointChange>0 ? 'table-success': ($liveMarketData->pointChange < 0 ? 'table-danger' : 'table-secondary')}} border border-2 border-light">
+          <td scope="row">{{$i}}</td>
           <td ><a class="liveSymbolName" href="/search/{{$liveMarketData->symbol}}">{{$liveMarketData->symbol}}</a></td>
           <td>{{$liveMarketData->ltp}}</td>
           <td>{{$liveMarketData->pointChange}}</td>
@@ -46,13 +46,12 @@ $i=1;
           <td>{{$liveMarketData->lowPrice}}</td>
           <td>{{$liveMarketData->volume}}</td>
           <td>{{$liveMarketData->prevClosePrice}}</td>
-      <td><a class="bg-primary rounded p-1 ps-2 pe-2" href="/addToWatchlist/{{$liveMarketData->symbol}}">Add to watchlist</a></td>
-    </td>
-    </tr>
-    <?php 
-    ++$i;?>
-@endforeach
-    </tr>
+          <td class=""><a class="btn btn-primary" href="/addToWatchlist/{{$liveMarketData->symbol}}">Add to watchlist</a></td>
+          </td>
+      </tr>
+      <?php 
+      ++$i;?>
+    @endforeach
   </tbody>
 </table>
 </div>

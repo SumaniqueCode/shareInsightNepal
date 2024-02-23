@@ -45,7 +45,7 @@
                 <?php
                 $liveMarket = LiveMarket::where('symbol', $watchList->symbolName)->first();
                 ?>
-                <tr class="border border-2 border-light {{ $liveMarket && $liveMarket->pointChange > 0 ? 'table-success' : ($liveMarket && $liveMarket->pointChange < 0 ? 'table-danger' : 'table-primary') }}">
+                <tr class="border border-2 border-light {{ $liveMarket && $liveMarket->pointChange > 0 ? 'table-success' : ($liveMarket && $liveMarket->pointChange < 0 ? 'table-danger' : 'table-secondary') }}">
                     <td>{{ $i }}</td>
                     <td><a class="liveSymbolName" href="/search/{{$watchList->symbolName}}">{{ $watchList->symbolName }}</a></td>
                     @if ($liveMarket)
@@ -68,7 +68,7 @@
                         <td>-</td>
                     @endif
                     <td>
-                        <a class="bg-primary p-1 ps-3 pe-3 rounded" href="/deleteWatchlistStock/{{$watchList->symbolName}}">Delete</a>
+                        <a class="btn btn-primary p-1 ps-3 pe-3 rounded" href="/deleteWatchlistStock/{{$watchList->symbolName}}">Delete</a>
                     </td>
                 </tr>
                 <?php $i++; ?>

@@ -1,4 +1,4 @@
-@extends('user/layout/layout')   
+@extends('admin/layout/layout')   
 @section('content')
 
 <script>

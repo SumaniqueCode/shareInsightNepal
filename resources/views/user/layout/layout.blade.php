@@ -1,9 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<!DOCTYPE html>
-<html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -43,16 +39,16 @@
                     <a class="col-lg-6 col-md-8 col-sm-8 me-auto mt-auto mb-auto" href="{{ url('/home') }}"><img class="img-fluid" src="{{asset('images/shareInsight2.png')}}"alt="Company Banner" width="300px" height="40px"></a>
                  </div>
                 <div class="col-lg-4 col-md-12 col-sm-12 d-flex me-auto"> 
-                    <form class="d-flex  searchField m-2" role="search" action="/search" method="post">
+                    <form class="d-flex searchField m-2" role="search" action="/search" method="post">
                      @csrf
-                        <input class="form-control col-lg-5 col-md-5 col-sm-4 p-3 mt-3 me-2" name="symbol" type="search" placeholder="Search" aria-label="Search">
+                        <input class="form-control col-lg-5 col-md-5 col-sm-4 p-3 mt-3 me-2 border border-1 border-primary" name="symbol" type="search" placeholder="Search" aria-label="Search">
                          <button class="col-lg-4 col-md-4 col-sm-4 btn btn-outline-success pb-3 mt-3" type="submit">Search</button>
                     </form>
                 </div>
             </div>
         </div>
         <div class="navigation">
-            <nav class="navbar navbar-expand-lg bg-success-subtle border rounded">
+            <nav class="navbar navbar-expand-lg border rounded">
                 <div class="container-fluid">
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
@@ -61,26 +57,26 @@
                         <div class="navbar-nav me-auto mb-2 mb-lg-0">
                             <ul class="navbar-nav">
                                 <li class="nav-item">
-                                    <a class="nav-link active text-center" aria-current="page" href="/home">Home</a>
+                                    <a class="nav-link active text-center text-white" aria-current="page" href="/home">Home</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link active text-center" href="/services">Services</a>
+                                    <a class="nav-link active text-center text-white" href="/services">Services</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link active text-center" aria-current="page" href="/liveMarket">Live Market</a>
+                                    <a class="nav-link active text-center text-white" aria-current="page" href="/liveMarket">Live Market</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link active text-center" aria-current="page" href="/watchlist">Watchlist</a>
+                                    <a class="nav-link active text-center text-white" aria-current="page" href="/watchlist">Watchlist</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link active text-center" aria-current="page" href="/portfolio">Portfolio</a>
+                                    <a class="nav-link active text-center text-white" aria-current="page" href="/portfolio">Portfolio</a>
                                 </li>
                             </ul>
                         </div>
                         <div>
                             <div class="navbar-nav me-auto mb-2 mb-lg-0">
                                 <div class="nav-item">
-                                    <a class="nav-link active text-center me-3" aria-current="page" href="/profile">Profile</a>
+                                    <a class="nav-link active text-center text-white me-3" aria-current="page" href="/profile">Profile</a>
                                 </div>
                             </div>
                         </div>
@@ -94,6 +90,38 @@
         <!-- content starts -->
         @yield('content')
         <!-- content ends -->
+
+        <button type="button" class="btn btn-primary btn-floating btn-lg" id="btn-back-to-top">
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+    <script>
+        //Get the button
+        let mybutton = document.getElementById("btn-back-to-top");
+
+        // When the user scrolls down 20px from the top of the document, show the button
+        window.onscroll = function () {
+        scrollFunction();
+        };
+
+        function scrollFunction() {
+        if (
+            document.body.scrollTop > 20 ||
+            document.documentElement.scrollTop > 20
+        ) {
+            mybutton.style.display = "block";
+        } else {
+            mybutton.style.display = "none";
+        }
+        }
+        // When the user clicks on the button, scroll to the top of the document
+        mybutton.addEventListener("click", backToTop);
+
+        function backToTop() {
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+        }
+    </script>
     </section>
 
     <section class="bottomFooter row">
@@ -112,7 +140,7 @@
             </div>
 
         </div>
-        <div class="copyrightArea rounded-bottom d-flex gap-6 pt-2 row">
+        <div class="copyrightArea navbar rounded-bottom d-flex gap-6 pt-2 row">
             <div class="copyright col-md-12 col-lg-8 col-sm-12">
             <p>Copyright &copy;2022-<script>document.write(new Date().getFullYear())</script> Share Insight Nepal All Rights Reserved</p>
             </div>

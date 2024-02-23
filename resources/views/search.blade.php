@@ -2,8 +2,8 @@
 @section('content')
 
 <div class="container">
-    <div class="summary border rounded mb-2 p-2 bg-secondary-subtle col-md-7">  
-        <table class="mb-2 me-auto">
+    <div class="summary border rounded mb-2 p-2 bg-secondary-subtle col-md-7 mt-2">  
+        <table class="mb-5 me-auto">
             <thead>
                 <th class="stockName bg-info p-1 rounded" name="stockName" colspan="6">{{$stockResult->symbol}}</th>
             </thead>

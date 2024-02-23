@@ -85,7 +85,7 @@ else {
   @if ($totalStock>0)
   {{-- displaying stocks --}}
   <div class="summary border rounded mb-2 p-2 bg-secondary-subtle">
-    <h5 class="bg-success rounded p-1">Summary</h5>
+    <h5 class="bg-primary text-white rounded p-1">Summary</h5>
     <div class="">
       <table class="mb-2 me-auto">
         <tbody>
@@ -113,7 +113,7 @@ else {
   </div>
 
   <div class="stockDetails border rounded mb-2 p-2 bg-secondary-subtle">
-    <h5 class="bg-success rounded p-1">Stock Details</h5>
+    <h5 class="bg-primary text-white rounded p-1">Stock Details</h5>
     <div class="row">
 
       {{-- looping table --}}
@@ -132,15 +132,19 @@ else {
         }
       ?>
 
-      <span class=" m-2 col-6">
+      <span class=" m-2 col-lg-5 col-12">
         <table>
           <thead>
-            <th class="stockName bg-info p-1 rounded" name="stockName" colspan="4">{{$portfolioData->stockName}}</th>
-            <th><a class="ms-2" href="/deletePortfolioStock/{{$portfolioData->id}}"><img
-                  src="{{asset('images/delete.png')}}" alt="DELETE STOCK" height="25px"></a></th>
+            <th class="stockName text-white p-1 rounded {{$profitLoss>0 ? 'bg-success': ($profitLoss < 0 ? 'bg-danger' : 'bg-secondary')}}" name="stockName" colspan="4">
+              {{$portfolioData->stockName}}
+            </th>
+            <th>
+              <a class="ms-2" href="/deletePortfolioStock/{{$portfolioData->id}}">
+                <img src="{{asset('images/delete.png')}}" alt="DELETE STOCK" height="25px">
+              </a>
+            </th>
           </thead>
-          <tbody
-            class="{{$profitLoss>0 ? 'bg-success-subtle': ($profitLoss < 0 ? 'bg-danger-subtle' : 'bg-secondary')}}">
+          <tbody>
             <tr>
               <td class="p-2">Units:</td>
               <td class="p-2">{{$portfolioData->stockUnit}}</td>

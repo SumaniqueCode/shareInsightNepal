@@ -35,16 +35,16 @@
                         <div class=" navbar-nav me-auto mb-2 mb-lg-0">
                             <ul class=" navbar-nav mb-lg-0">
                                 <li class="ms-3 nav-item">
-                                    <a class="nav-link active  text-center" aria-current="page" href="/adminHome">Home</a>
+                                    <a class="nav-link active text-white text-center" aria-current="page" href="/adminHome">Home</a>
                                 </li>
                                 <li class="ms-3 nav-item">
-                                    <a class="nav-link active  text-center" aria-current="page" href="/brokers">Broker List</a>
+                                    <a class="nav-link active text-white text-center" aria-current="page" href="/brokers">Broker List</a>
                                 </li>
                                 <li class="ms-3 nav-item">
-                                    <a class="nav-link active  text-center" href="/customers">Customers</a>
+                                    <a class="nav-link active text-white text-center" href="/customers">Customers</a>
                                 </li>
                                 <li class="ms-3 nav-item">
-                                    <a class="nav-link active  text-center" aria-current="page" href="/admins">Admins</a>
+                                    <a class="nav-link active text-white text-center" aria-current="page" href="/admins">Admins</a>
                                 </li>
                             </ul>
                         </div>
@@ -82,7 +82,7 @@
             </div>
 
         </div>
-        <div class="copyrightArea rounded-bottom d-flex pt-2 row">
+        <div class="copyrightArea navbar rounded-bottom d-flex pt-2 row">
             <div class="copyright col-sm-7">
             <p class="col-sm-12">Copyright &copy;2022-<script>document.write(new Date().getFullYear())</script> Share Insight Nepal All Rights Reserved</p>
             </div>
