@@ -8,8 +8,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>Share Insight Nepal</title>
-    <link rel="icon" href="{{asset('images/shareInsight.JPG')}}" type="image/jpg" sizes="32x32">
-
+    <link rel="icon" href="{{ asset('images/shareInsight.JPG') }}" type="image/jpg" sizes="32x32">
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.bunny.net">
@@ -17,56 +16,44 @@
 
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
+
     <style>
-        .form-control{
-            border: 1px solid black;
-        }
-        .card{
-            border: 1px solid black; 
-        }
-        .card-header{
-            border: 1px solid black; 
-        }
-        .card-body{
-            border: 1px solid black; 
-        }
-        body{
+        body {
             background: white;
-        }
-        .btn-primary{
-            border: 1px solid white;
-            background: linear-gradient(180deg, rgb(3, 50, 139) 5%, rgb(3, 65, 179) 54%, rgb(3, 110, 211) 100%); 
-        }
-        .btn-danger{
-            background: linear-gradient(180deg, rgb(139, 5, 5) 5%, rgb(210, 5, 5) 54%, rgb(211, 5, 5) 100%); 
-            border: 1px solid white;
         }
     </style>
 </head>
-<body class="container" >
+<body class="max-w-7xl mx-auto px-4">
     <section id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
-            <div class="container">
-                <div class="topHeader">
-                    <div class="logo d-flex">
-                         <a href="{{ url('/') }}"><img src="{{asset('images/shareInsight1.JPG')}}" class=" ms-4 me-3" alt="Company Banner" width="150px"></a>
-                            <a href="{{ url('/') }}"><img src="{{asset('images/shareInsight2.png')}}" class="me-auto mt-3" alt="Company Banner" width="250px" height="30px"></a>
-                    </div>
+        <nav class="bg-white shadow">
+            <div class="flex flex-col sm:flex-row justify-between items-center py-2">
+                <div class="flex flex-col sm:flex-row items-center">
+                    <a href="{{ url('/') }}">
+                        <img src="{{ asset('images/shareInsight1.JPG') }}" class="ms-4 me-3" alt="Company Banner" width="150px">
+                    </a>
+                    <a href="{{ url('/') }}">
+                        <img src="{{ asset('images/shareInsight2.png') }}" class="mt-3 sm:mt-0 sm:ml-4" alt="Company Banner" width="250px" height="30px">
+                    </a>
                 </div>
-                <!-- Right Side Of Navbar -->
-                <!-- Authentication Links -->
-                <div class="my-auto">
+
+                <div class="mt-4 sm:mt-0 flex gap-4">
                     @if (Route::has('login'))
-                        <a class="btn btn-primary" href="{{ route('login') }}">{{ __('Login') }}</a>
+                        <a href="{{ route('login') }}" class="bg-gradient-to-b from-blue-900 via-blue-700 to-blue-500 text-white font-semibold px-4 py-2 rounded border border-white">
+                            {{ __('Login') }}
+                        </a>
                     @endif
                     @if (Route::has('register'))
-                        <a class="btn btn-primary" href="{{ route('register') }}">{{ __('Register') }}</a>
+                        <a href="{{ route('register') }}" class="bg-gradient-to-b from-blue-900 via-blue-700 to-blue-500 text-white font-semibold px-4 py-2 rounded border border-white">
+                            {{ __('Register') }}
+                        </a>
                     @endif
                 </div>
             </div>
         </nav>
-        <p class="border border-4"></p>
-        <main class="py-4">
+
+        <div class="border-4 my-2"></div>
+
+        <main class="py-6">
             @yield('content')
         </main>
     </section>
