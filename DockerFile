@@ -1,25 +1,24 @@
 FROM php:8.1-fpm
 
-# Install system dependencies and Node.js
 RUN apt-get update && apt-get install -y curl \
   && curl -fsSL https://deb.nodesource.com/setup_18.x | bash - \
   && apt-get install -y nodejs zip unzip git
 
 WORKDIR /app
 
-# Copy PHP composer files and install
 COPY composer.json composer.lock ./
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 RUN composer install --no-dev --optimize-autoloader
 
-# Copy npm files and install
 COPY package*.json ./
 RUN npm install
 
-# Copy all other files
+ENV PATH="./node_modules/.bin:$PATH"
+
 COPY . .
 
-# Build frontend assets
+RUN chmod +x ./node_modules/.bin/vite
+
 RUN npm run build
 
 EXPOSE 9000
