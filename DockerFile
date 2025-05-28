@@ -1,23 +1,26 @@
-FROM node:18 as node_builder
-WORKDIR /app
-COPY package*.json ./
-RUN npm install
-COPY . .
-RUN npm run build
-
 FROM php:8.1-fpm
-WORKDIR /var/www/html
 
-# Copy built assets from node_builder
-COPY --from=node_builder /app/public ./public
-COPY --from=node_builder /app/node_modules ./node_modules
+# Install system dependencies and Node.js
+RUN apt-get update && apt-get install -y curl \
+  && curl -fsSL https://deb.nodesource.com/setup_18.x | bash - \
+  && apt-get install -y nodejs zip unzip git
 
-# Copy PHP app files
-COPY . .
+WORKDIR /app
 
-# Install PHP dependencies
+# Copy PHP composer files and install
+COPY composer.json composer.lock ./
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 RUN composer install --no-dev --optimize-autoloader
+
+# Copy npm files and install
+COPY package*.json ./
+RUN npm install
+
+# Copy all other files
+COPY . .
+
+# Build frontend assets
+RUN npm run build
 
 EXPOSE 9000
 CMD ["php-fpm"]
