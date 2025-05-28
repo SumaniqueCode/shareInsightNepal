@@ -17,6 +17,7 @@
 use App\Models\User\Index;
 use App\Models\User\LiveMarket;
 
+indexData();
 $indices = Index::latest()->get();
 $nepseIndex = Index::where('indexName', 'Nepse Index')->first();
 $topgainers = LiveMarket::orderBy('percentChange', 'desc')->take(10)->get();
