@@ -1,25 +1,23 @@
+FROM node:18 as node_builder
+WORKDIR /app
+COPY package*.json ./
+RUN npm install
+COPY . .
+RUN npm run build
+
 FROM php:8.1-fpm
-
-# Install system dependencies
-RUN apt-get update && apt-get install -y \
-    git curl zip unzip nodejs npm
-
-# Install PHP extensions needed by Laravel
-RUN docker-php-ext-install pdo pdo_mysql mbstring exif pcntl bcmath gd
-
 WORKDIR /var/www/html
 
-# Copy composer files and install PHP dependencies
-COPY composer.json composer.lock ./
-RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
-RUN composer install --no-dev --optimize-autoloader
+# Copy built assets from node_builder
+COPY --from=node_builder /app/public ./public
+COPY --from=node_builder /app/node_modules ./node_modules
 
-# Copy the rest of the app
+# Copy PHP app files
 COPY . .
 
-# Install npm dependencies and build frontend assets
-RUN npm install
-RUN npm run prod
+# Install PHP dependencies
+RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+RUN composer install --no-dev --optimize-autoloader
 
 EXPOSE 9000
 CMD ["php-fpm"]
