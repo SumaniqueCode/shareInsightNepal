@@ -30,8 +30,8 @@
     <link rel="icon" href="{{asset('images/shareInsight.JPG')}}" type="image/jpg" sizes="32x32">
 </head>
 
-<body class="container">
-    <section class="topHeader">
+<body class="container row mx-auto">
+    <section class="topHeader col-span-12">
         <div class="topHeadera">
             <div class="logo d-flex me-auto row">
                 <div class="col-lg-7 col-md-12 col-sm-12 d-flex me-auto">
@@ -86,7 +86,7 @@
         </div>
     </section>
 
-    <section class="container content row">
+    <section class="container content col-span-12">
         <!-- content starts -->
         @yield('content')
         <!-- content ends -->
@@ -124,7 +124,7 @@
     </script>
     </section>
 
-    <section class="bottomFooter row">
+    <section class="bottomFooter col-span-12">
         <div class="about pt-2 row rounded-top">
             <div class="aboutUs col-md-12 col-lg-8 col-sm-12">
                 <h5>About Us</h5>
