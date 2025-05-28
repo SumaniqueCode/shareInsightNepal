@@ -8,8 +8,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>Share Insight Nepal</title>
-    <link rel="icon" href="{{asset('images/shareInsight.JPG')}}" type="image/jpg" sizes="32x32">
-
+    <link rel="icon" href="{{ asset('images/shareInsight.JPG') }}" type="image/jpg" sizes="32x32">
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.bunny.net">
@@ -17,6 +16,7 @@
 
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
+
     <style>
         .form-control{
             border: 1px solid black;
@@ -43,29 +43,31 @@
         }
     </style>
 </head>
-<body class="container" >
+<body class="container mx-auto px-4">
     <section id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
-            <div class="container">
-                <div class="topHeader">
-                    <div class="logo d-flex">
-                         <a href="{{ url('/') }}"><img src="{{asset('images/shareInsight1.JPG')}}" class=" ms-4 me-3" alt="Company Banner" width="150px"></a>
-                            <a href="{{ url('/') }}"><img src="{{asset('images/shareInsight2.png')}}" class="me-auto mt-3" alt="Company Banner" width="250px" height="30px"></a>
-                    </div>
+        <nav class="bg-white shadow-sm border-b">
+            <div class="container mx-auto flex items-center justify-between py-2 px-4">
+                <div class="flex items-center space-x-4">
+                    <a href="{{ url('/') }}">
+                        <img src="{{ asset('images/shareInsight1.JPG') }}" alt="Logo" class="w-[150px] ms-4 me-3">
+                    </a>
+                    <a href="{{ url('/') }}">
+                        <img src="{{ asset('images/shareInsight2.png') }}" alt="Banner" class="mt-3" style="width:250px; height:30px;">
+                    </a>
                 </div>
-                <!-- Right Side Of Navbar -->
-                <!-- Authentication Links -->
-                <div class="my-auto">
+                <div class="flex space-x-3">
                     @if (Route::has('login'))
-                        <a class="btn btn-primary" href="{{ route('login') }}">{{ __('Login') }}</a>
+                        <a href="{{ route('login') }}" class="btn-primary">{{ __('Login') }}</a>
                     @endif
                     @if (Route::has('register'))
-                        <a class="btn btn-primary" href="{{ route('register') }}">{{ __('Register') }}</a>
+                        <a href="{{ route('register') }}" class="btn-primary">{{ __('Register') }}</a>
                     @endif
                 </div>
             </div>
         </nav>
-        <p class="border border-4"></p>
+
+        <p class="border-4 my-2"></p>
+
         <main class="py-4">
             @yield('content')
         </main>
