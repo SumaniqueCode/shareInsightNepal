@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Http;
 class UserController extends Controller
 {
     public function userDashboard(){
-        // liveMarketData();
+        liveMarketData();
         return view('user.index');
     }
     public function services(){
