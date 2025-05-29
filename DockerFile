@@ -24,9 +24,10 @@ COPY . .
 
 # Build Vite assets
 RUN npm run build
+RUN npm run dev
 
 # Laravel caches (optional but recommended)
-RUN php artisan config:cache && php artisan route:cache && php artisan view:cache
+RUN php artisan optimize
 
 EXPOSE 9000
 CMD ["php-fpm"]
